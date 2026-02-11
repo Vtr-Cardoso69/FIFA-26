@@ -4,8 +4,8 @@ testando dnv
 
 tudo bem ?
 
-<<<<<<< HEAD
+
 Pedro seu bobo cria logo!!
 =======
 oiii amor vitor
->>>>>>> cd584af74be8bad92a41cc00cba8d1c680feae97
+

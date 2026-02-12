@@ -1,5 +1,5 @@
 <?php   
-
+require_once __DIR__ . '/../DB/Database.php';
 class TeamModel{
     
     private $pdo;
@@ -9,7 +9,11 @@ class TeamModel{
     }
 
     public function buscarTodasSelecoes(){
-        $stmt = $this->pdo->query('SELECT * FROM selecoes');
+        $stmt = $this->pdo->query('
+            SELECT t.*, g.nome AS nome_grupo
+            FROM selecoes t
+            LEFT JOIN grupos g ON t.grupo_id = g.id
+        ');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -48,7 +52,7 @@ class TeamModel{
         return $result !== false ? $result : null;
     }
 
-    public function editarSelecao($id, $nome, $continente, $grupo_id){
+    public function editar($id, $nome, $continente, $grupo_id){
         $sql= "UPDATE selecoes SET nome=?, continente=?, grupo_id=?, WHERE id=?";
         $stmt=$this->pdo->prepare($sql);
       
@@ -59,6 +63,25 @@ class TeamModel{
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
     }
+
+public function buscarTodasComGrupo() {
+    $sql = "
+        SELECT 
+            selecoes.id,
+            selecoes.nome,
+            selecoes.continente,
+            grupos.nome AS nome_grupo
+        FROM selecoes
+        LEFT JOIN grupos
+            ON selecoes.grupo_id = grupos.id
+    ";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
     
 }

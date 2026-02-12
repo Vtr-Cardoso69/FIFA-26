@@ -1,19 +1,35 @@
 <?php
-require_once 'Sistema/DB/Database.php';
-require_once 'Sistema/Controller/TeamsC.php';
+require_once __DIR__ . '/../../DB/Database.php';
+require_once __DIR__ . '/../../Controller/TeamsC.php';
 
 if (empty($teams)) {
-      echo "nada";
-}
- foreach ($teams as $team) {
-      $id = $team['id'];
-      echo "<tr>";
-      echo "<td>{$id}</td>";
-      echo "<td>{$team['nome']}</td>";
-      echo "<td>{$team['email']}</td>";
-      echo "<td>
-<a href='View/Usuario/editar.php?id={$id}'>Editar</a> 
-<a href='View/Usuario/deletar.php?id={$id}' onclick=\"return confirm('Tem certeza que deseja excluir este usuário?')\">Deletar</a></td>";
-      echo "</tr>";
+    echo "nada";
+} else {
+    echo '<table border="1" cellpadding="5" cellspacing="0">';
+    echo '<thead><tr>';
+    echo '<th>ID</th>';
+    echo '<th>Nome do Time</th>';
+    echo '<th>Grupo</th>';
+    echo '<th>Ações</th>';
+    echo '</tr></thead><tbody>';
+    foreach ($teams as $team) {
+        $id = $team['id'];
+        $nome = isset($team['nome']) ? htmlspecialchars($team['nome']) : '';
+        $grupo = isset($team['nome_grupo']) ? htmlspecialchars($team['nome_grupo']) : '';
+        echo "<tr>";
+        echo "<td>{$id}</td>";
+        echo "<td>{$nome}</td>";
+        echo "<td>{$grupo}</td>";
+        echo "<td>
+            <a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a>
+            <a href='/FIFA-26/Sistema/View/Teams/editar.php?id={$id}'>Editar</a> 
+            <a href='/FIFA-26/Sistema/View/Teams/deletar.php?id={$id}' 
+               onclick=\"return confirm('Tem certeza que deseja excluir este usuário?')\">
+               Deletar
+            </a>
+        </td>";
+        echo "</tr>";
     }
+    echo '</tbody></table>';
+}
 ?>

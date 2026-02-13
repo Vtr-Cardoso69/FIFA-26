@@ -19,13 +19,12 @@ class GroupModel{
         return $result !== false ? $result : null;
     }
 
-    public function cadastrarGrupo($nome, $slot1, $slot2){
-        $sql = 'INSERT INTO grupos (nome, slot1, slot2) VALUES (:nome, :slot1, :slot2)';
+    public function cadastrarGrupo($nome,){
+        $sql = 'INSERT INTO grupos (nome) VALUES (:nome)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'nome' => $nome,
-            'slot1' => $slot1,
-            'slot2' => $slot2,
+            
         ]);
     }
 

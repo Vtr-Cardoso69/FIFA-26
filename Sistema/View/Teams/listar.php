@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/TeamsC.php';
-
+ echo "<a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a>";
 if (empty($teams)) {
     echo "nada";
+
 } else {
     echo '<table border="1" cellpadding="5" cellspacing="0">';
     echo '<thead><tr>';
@@ -21,7 +22,7 @@ if (empty($teams)) {
         echo "<td>{$nome}</td>";
         echo "<td>{$grupo}</td>";
         echo "<td>
-            <a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a>
+           
             <a href='/FIFA-26/Sistema/View/Teams/editar.php?id={$id}'>Editar</a> 
             <a href='/FIFA-26/Sistema/View/Teams/deletar.php?id={$id}' 
                onclick=\"return confirm('Tem certeza que deseja excluir este usuário?')\">

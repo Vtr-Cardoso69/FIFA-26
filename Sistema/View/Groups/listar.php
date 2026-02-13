@@ -3,9 +3,11 @@ require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/GroupsC.php';
 
 
+   echo "<a href='View/Groups/cadastrar.php'>Cadastrar</a>";
 
 if (empty($groups)) {
-      echo "nada<br>  <a href='View/Groups/cadastrar.php'>Cadastrar</a>";
+      echo "nada<br>  ";
+   
      
 }
  foreach ($groups as $group) {
@@ -20,6 +22,5 @@ if (empty($groups)) {
 <a href='View/Usuario/deletar.php?id={$id}' onclick=\"return confirm('Tem certeza que deseja excluir este usuário?')\">Deletar</a></td>";
       echo "</tr>";
       
- echo  "<a href='View/Groups/cadastrar.php'>Cadastrar</a>;""
     }
 ?>

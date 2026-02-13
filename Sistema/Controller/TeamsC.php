@@ -22,7 +22,6 @@ class TeamController {
     }
 
 
-
     // Busca um Team por ID
     public function buscarTeam($id) {
         return $this->TeamModel->buscarSelecoes($id);
@@ -34,9 +33,10 @@ class TeamController {
     }
 
     // Atualiza um Team por ID
-    public function editar( $nome, $grupo_id, $continente, $jogos) {
-        return $this->TeamModel->editar($id, $nome, $grupo_id, $continente, $jogos);
-    }
+    public function editar($id, $nome, $grupo_id, $continente, $jogos) {
+    return $this->TeamModel->editar($id, $nome, $grupo_id, $continente, $jogos);
+}
+
     
     
 

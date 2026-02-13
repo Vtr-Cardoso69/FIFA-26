@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/02/2026 às 13:11
+-- Tempo de geração: 13/02/2026 às 13:40
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,8 +18,52 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
---  Banco de dados: `copa_mundo`
+-- Banco de dados: `copa_mundo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `grupos`
+--
+
+CREATE TABLE `grupos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `jogos`
+--
+
+CREATE TABLE `jogos` (
+  `id` int(11) NOT NULL,
+  `selecao_mandante_id` int(11) NOT NULL,
+  `selecao_visitante_id` int(11) NOT NULL,
+  `data_hora` datetime NOT NULL,
+  `estadio` varchar(255) NOT NULL,
+  `fase` varchar(255) NOT NULL,
+  `grupo_id` int(11) NOT NULL,
+  `gols_mandante` int(11) NOT NULL,
+  `gols_visitante` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `selecoes`
+--
+
+CREATE TABLE `selecoes` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `continente` varchar(255) NOT NULL,
+  `grupo_id` int(11) NOT NULL,
+  `gols_pro` int(11) NOT NULL,
+  `gols_con` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -40,6 +84,24 @@ CREATE TABLE `usuarios` (
 --
 
 --
+-- Índices de tabela `grupos`
+--
+ALTER TABLE `grupos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `selecoes`
+--
+ALTER TABLE `selecoes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -48,6 +110,24 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `grupos`
+--
+ALTER TABLE `grupos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `selecoes`
+--
+ALTER TABLE `selecoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

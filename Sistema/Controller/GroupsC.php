@@ -9,9 +9,9 @@ class GroupController {
     }
 
     // Cadastra um novo Group
-    public function cadastrar($nome, $slot1, $slot2 ) {
+    public function cadastrar($nome) {
         // Valida se professor existe
-        return $this->GroupModel->cadastrarGrupo($nome, $slot1,$slot2 );
+        return $this->GroupModel->cadastrarGrupo($nome);
     }
 
     // Lista todos os Selecoes
@@ -37,8 +37,8 @@ class GroupController {
     }
 
     // Atualiza um Group por ID
-    public function atualizar($id, $nome, $slot1, $slot2) {
-        return $this->GroupModel->atualizarGroup($id, $nome, $slot1, $slot2);
+    public function atualizar($id, $nome) {
+        return $this->GroupModel->atualizarGroup($id, $nome);
     }
 
     public function quadro() {

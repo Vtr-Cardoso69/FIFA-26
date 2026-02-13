@@ -13,16 +13,19 @@ foreach ($grupos as $linha):
         }
 
         $grupoAtual = $linha['nome_grupo'];
-        echo "<h3>{$grupoAtual}</h3><ul>";
+        echo "<h3>{$grupoAtual} <a href='View/Groups/cadastro.php'>Cadastrar</a></h3><ul>";
     }
 
     if ($linha['nome_time']) {
-        echo "<li>{$linha['nome_time']}</li>";
+        $cont = !empty($linha['continente_time']) ? ' (' . htmlspecialchars($linha['continente_time']) . ')' : '';
+        echo "<li>" . htmlspecialchars($linha['nome_time']) . $cont . "</li>";
     }
-
 endforeach;
 
 if ($grupoAtual !== null) {
     echo "</ul>";
 }
+
+// link to cadastrar seleção (teams)
+echo "<p><a href='View/Teams/cadastro.php'>Cadastrar Seleção</a></p>";
 ?>

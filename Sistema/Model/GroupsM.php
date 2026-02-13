@@ -34,7 +34,8 @@ class GroupModel{
             grupos.id AS grupo_id,
             grupos.nome AS nome_grupo,
             selecoes.id AS time_id,
-            selecoes.nome AS nome_time
+            selecoes.nome AS nome_time,
+            selecoes.continente AS continente_time
         FROM grupos
         LEFT JOIN selecoes
             ON selecoes.grupo_id = grupos.id

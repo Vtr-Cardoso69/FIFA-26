@@ -2,7 +2,11 @@
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/TeamsC.php';
+require_once __DIR__ . '/../../Model/GroupsM.php';
+
 $TeamController = new TeamController($pdo);
+$groupModel = new GroupModel($pdo);
+$grupos = $groupModel->buscarTodos();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -30,19 +34,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <form method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome"><br><br>
-        <label for="grupo_id">Grupo:</label>
-        <input type="number" id="grupo_id" name="grupo_id"><br><br>
-        <label for="jogos">Jogos:</label>
-        <input type="number" id="jogos" name="jogos"><br><br>
-        <select id="continente" name="continente">
-        <option value="">-- Selecione --</option>
-        <option value="africa">África</option>
-        <option value="america">América</option>
-        <option value="europa">Europa</option>
-        <option value="asia">Ásia</option>
-        <option value="oceania">Oceania</option>
-  </select>
-        <input type="submit" value="Cadastrar">
-</form>
-</body>
+            <label for="grupo_id">Grupo:</label>
+            <select id="grupo_id" name="grupo_id">
+                <option value="">-- Selecione --</option>
+                <?php foreach ($grupos as $g): ?>
+                    <option value="<?php echo $g['id']; ?>"><?php echo htmlspecialchars($g['nome']); ?></option>
+                <?php endforeach; ?>
+            </select><br><br>
+
+
+
+            <label for="continente">Continente:</label>
+            <select id="continente" name="continente">
+                <option value="">-- Selecione --</option>
+                <option value="África">África</option>
+                <option value="America">América</option>
+                <option value="Europa">Europa</option>
+                <option value="Ásia">Ásia</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+            <input type="submit" value="Cadastrar">
 </html>

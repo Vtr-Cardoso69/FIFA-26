@@ -25,14 +25,14 @@ class TeamModel{
         return $result !== false ? $result : null;
     }
 
-    public function cadastrarSelecao($nome, $continente, $grupo_id, $jogos){
-        $sql = ('INSERT INTO selecoes (nome, continente, grupo_id, jogos) VALUES (:nome, :continente, :grupo_id, :jogos) ');
+    public function cadastrarSelecao($nome, $continente, $grupo_id){
+        $sql = ('INSERT INTO selecoes (nome, continente, grupo_id ) VALUES (:nome, :continente, :grupo_id ) ');
         $stmt=$this->pdo->prepare($sql);
         $stmt->execute([
             'nome'=>$nome,
             'continente'=>$continente,
             'grupo_id'=>$grupo_id,
-            'jogos'=> $jogos,
+        
         ]);
     }
 
@@ -53,7 +53,7 @@ class TeamModel{
     }
 
     public function editar($id, $nome, $continente, $grupo_id){
-        $sql= "UPDATE selecoes SET nome=?, continente=?, grupo_id=?, WHERE id=?";
+        $sql= "UPDATE selecoes SET nome=?, continente=?, grupo_id=? WHERE id=?";
         $stmt=$this->pdo->prepare($sql);
       
     }

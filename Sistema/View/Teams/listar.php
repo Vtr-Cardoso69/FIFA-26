@@ -11,16 +11,19 @@ if (empty($teams)) {
     echo '<th>ID</th>';
     echo '<th>Nome do Time</th>';
     echo '<th>Grupo</th>';
+    echo '<th>Continente</th>';
     echo '<th>Ações</th>';
     echo '</tr></thead><tbody>';
     foreach ($teams as $team) {
         $id = $team['id'];
         $nome = isset($team['nome']) ? htmlspecialchars($team['nome']) : '';
         $grupo = isset($team['nome_grupo']) ? htmlspecialchars($team['nome_grupo']) : '';
+        $continente = isset($team['continente']) ? htmlspecialchars($team['continente']) : '';
         echo "<tr>";
         echo "<td>{$id}</td>";
         echo "<td>{$nome}</td>";
         echo "<td>{$grupo}</td>";
+        echo "<td>{$continente}</td>";
         echo "<td>
            
             <a href='/FIFA-26/Sistema/View/Teams/editar.php?id={$id}'>Editar</a> 

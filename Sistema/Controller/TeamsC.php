@@ -10,9 +10,9 @@ class TeamController {
     }
 
     // Cadastra um novo Team
-    public function cadastrar($nome, $grupo_id, $continente, $jogos ) {
+    public function cadastrar($nome, $grupo_id, $continente ) {
         // Valida se professor existe
-        return $this->TeamModel->cadastrarSelecao($nome, $continente, $grupo_id, $jogos);
+        return $this->TeamModel->cadastrarSelecao($nome, $continente, $grupo_id);
     }
 
     
@@ -33,8 +33,8 @@ class TeamController {
     }
 
     // Atualiza um Team por ID
-    public function editar($id, $nome, $grupo_id, $continente, $jogos) {
-    return $this->TeamModel->editar($id, $nome, $grupo_id, $continente, $jogos);
+    public function editar($id, $nome, $grupo_id, $continente) {
+    return $this->TeamModel->editar($id, $nome, $grupo_id, $continente);
 }
 
     

@@ -1,4 +1,4 @@
-
+gi
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/TeamsC.php';

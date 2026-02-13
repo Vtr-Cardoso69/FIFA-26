@@ -70,25 +70,26 @@ class GameModel{
 
 
     public function classificacao($id, $gols_mandante, $gols_visitante, $selecao_mandante_id, $selecao_visitante_id){
+
         // Buscar os nomes das seleções
-        $sql = "SELECT nome FROM selecoes WHERE id = :id";
+        $sql = "SELECT nome FROM selecoes WHERE nome = :nome";
         $stmt = $this->pdo->prepare($sql);
         
-        $stmt->execute([':id' => $selecao_mandante_id]);
-        $sel_mandante = $stmt->fetch(PDO::FETCH_ASSOC)['nome'];
+        $stmt->execute([':nome' => $selecao_mandante_id]);
+        $sel_mandante = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        $stmt->execute([':id' => $selecao_visitante_id]);
-        $sel_visitante = $stmt->fetch(PDO::FETCH_ASSOC)['nome'];
+        $stmt->execute([':nome' => $selecao_visitante_id]);
+        $sel_visitante = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if($gols_mandante > $gols_visitante){
             //mandante ganha
-            echo 'Vitória da' . $sel_mandante . "!";
+            echo 'Vitória ' . $sel_mandante['nome'] . "!";
         } elseif($gols_mandante < $gols_visitante){
             //visitante ganha
-            echo 'Vitória da' . $sel_visitante . "!";
-        } elseif($gols_mandante == $gols_visitante){
-            //empate
-            echo 'Empate entre ' . $sel_mandante . " e " . $sel_visitante . "!";
+            echo 'Vitória ' . $sel_visitante . "!";
+            } elseif($gols_mandante == $gols_visitante){
+                //empate
+            echo 'Empate entre ' . $sel_mandante['nome'] . " e " . $sel_visitante['nome'] . "!";
         }
     }
 

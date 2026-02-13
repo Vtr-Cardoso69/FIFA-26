@@ -26,6 +26,8 @@ $gameController = new GameController($pdo);
 </html>
 
 <?php
+
+$id = $_GET['id'];
  
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $gols_mandante = $_POST['gols_mandante'];

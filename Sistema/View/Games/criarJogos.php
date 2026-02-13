@@ -19,6 +19,7 @@ $gameController = new GameController($pdo);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIFA-26</title>
+    <link rel="stylesheet" href="../../../css/criarJogos.css">
 </head>
 <body>
 

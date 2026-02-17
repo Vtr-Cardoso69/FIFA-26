@@ -1,46 +1,73 @@
 <?php
 require_once __DIR__ . '/../DB/Database.php';
 
-class UsersM {
-    private $pdo;
+class UsersModel {
+    private PDO $pdo;
 
-    public function __construct($pdo) {
+    public function __construct(PDO $pdo) {
         $this->pdo = $pdo;
     }
 
-    public function getAll() {
-        $stmt = $this->pdo->prepare("SELECT u.*, s.nome as selecao_nome FROM usuarios u LEFT JOIN selecoes s ON u.selecao_id = s.id");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function listarUsuarios(): array {
+        $sql = 'SELECT u.*, s.nome AS selecao_nome
+                FROM usuarios u
+                LEFT JOIN selecoes s ON u.selecao_id = s.id';
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getById($id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function buscarUsuario(int $id): ?array {
+        $stmt = $this->pdo->prepare(
+            'SELECT * FROM usuarios WHERE id = :id'
+        );
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
     }
 
-    public function create($nome, $idade, $cargo, $selecao_id) {
-        $selecao_id = !empty($selecao_id) ? $selecao_id : null;
-        $stmt = $this->pdo->prepare("INSERT INTO usuarios (nome, idade, cargo, selecao_id) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$nome, $idade, $cargo, $selecao_id]);
-    }
+   public function salvar(array $dados): void {
 
-    public function update($id, $nome, $idade, $cargo, $selecao_id) {
-        $selecao_id = !empty($selecao_id) ? $selecao_id : null;
-        $stmt = $this->pdo->prepare("UPDATE usuarios SET nome = ?, idade = ?, cargo = ?, selecao_id = ? WHERE id = ?");
-        return $stmt->execute([$nome, $idade, $cargo, $selecao_id, $id]);
-    }
+    if (!empty($dados['id'])) {
 
-    public function delete($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM usuarios WHERE id = ?");
-        return $stmt->execute([$id]);
-    }
+        $sql = 'UPDATE usuarios
+                SET nome = :nome,
+                    idade = :idade,
+                    cargo = :cargo,
+                    selecao_id = :selecao_id
+                WHERE id = :id';
 
-    public function getSelecoes() {
-        $stmt = $this->pdo->prepare("SELECT id, nome FROM selecoes");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([
+            'id' => $dados['id'],
+            'nome' => $dados['nome'],
+            'idade' => $dados['idade'],
+            'cargo' => $dados['cargo'],
+            'selecao_id' => $dados['selecao_id'] ?: null
+        ]);
+
+    } else {
+
+        $sql = 'INSERT INTO usuarios
+                (nome, idade, cargo, selecao_id)
+                VALUES (:nome, :idade, :cargo, :selecao_id)';
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute([
+            'nome' => $dados['nome'],
+            'idade' => $dados['idade'],
+            'cargo' => $dados['cargo'],
+            'selecao_id' => $dados['selecao_id'] ?: null
+        ]);
     }
 }
-?>
+
+
+    public function deletar(int $id): void {
+        $stmt = $this->pdo->prepare(
+            'DELETE FROM usuarios WHERE id = :id'
+        );
+        $stmt->execute(['id' => $id]);
+    }
+}
+
+

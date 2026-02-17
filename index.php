@@ -1,20 +1,4 @@
-<?php
-require_once __DIR__ . '/Sistema/DB/Database.php';
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : 'land';
-
-if ($controller === 'user') {
-    require_once __DIR__ . '/Sistema/Controller/UserC.php';
-    exit;
-}
-
-if ($controller === 'team') {
-    require_once __DIR__ . '/Sistema/Controller/TeamsC.php';
-    exit;
-}
-
-// Se não for controller de usuário, exibe a Landing Page
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -172,19 +156,21 @@ if ($controller === 'team') {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=user&action=list">Usuários</a>
+                        <a class="nav-link" href="Sistema/View/Users/list.php">Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=team&action=list">Seleções</a>
+                        <a class="nav-link" href="Sistema/View/Teams/listar.php">Seleções</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jogos</a>
+                       <a class="nav-link" href="Sistema/View/Games/listarJogos.php">Jogos</a>
+
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="container">

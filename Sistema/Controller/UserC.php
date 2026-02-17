@@ -1,93 +1,40 @@
 <?php
+
 require_once __DIR__ . '/../Model/UsersM.php';
+require_once __DIR__ . '/../Model/TeamsM.php';
 require_once __DIR__ . '/../DB/Database.php';
 
-class UserC {
-    private $model;
-    private $cargos = ['Técnico', 'Árbitro', 'Jogador', 'Auxiliar Técnico', 'Médico',];
+class UserController {
+    private UsersModel $usersModel;
+    private TeamModel $teamsModel;
+    private array $cargos = ['Jogador', 'Técnico', 'Árbitro', 'Preparador Físico', 'Médico'];
 
-    public function __construct($pdo) {
-        $this->model = new UsersM($pdo);
+    public function __construct(PDO $pdo) {
+        $this->usersModel = new UsersModel($pdo);
+        $this->teamsModel = new TeamModel($pdo);
     }
 
-    public function processRequest() {
-        $action = isset($_GET['action']) ? $_GET['action'] : 'list';
-
-        switch ($action) {
-            case 'list':
-                $this->listUsers();
-                break;
-            case 'create':
-                $this->createUser();
-                break;
-            case 'store':
-                $this->storeUser();
-                break;
-            case 'edit':
-                $this->editUser();
-                break;
-            case 'update':
-                $this->updateUser();
-                break;
-            case 'delete':
-                $this->deleteUser();
-                break;
-            default:
-                $this->listUsers();
-                break;
-        }
+    public function listar(): array {
+        return $this->usersModel->listarUsuarios();
     }
 
-    private function listUsers() {
-        $users = $this->model->getAll();
-        include __DIR__ . '/../View/Users/list.php';
+    public function buscarUsuario(int $id): ?array {
+        return $this->usersModel->buscarUsuario($id);
     }
 
-    private function createUser() {
-        $selecoes = $this->model->getSelecoes();
-        $cargos = $this->cargos;
-        include __DIR__ . '/../View/Users/create.php';
+    public function salvar(array $dados): void {
+        $this->usersModel->salvar($dados);
     }
 
-    private function storeUser() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nome = $_POST['nome'];
-            $idade = $_POST['idade'];
-            $cargo = $_POST['cargo'];
-            $selecao_id = isset($_POST['selecao_id']) && $_POST['selecao_id'] !== "" ? $_POST['selecao_id'] : null;
-            $this->model->create($nome, $idade, $cargo, $selecao_id);
-            header('Location: index.php?controller=user&action=list');
-        }
+    public function deletar(int $id): void {
+        $this->usersModel->deletar($id);
     }
 
-    private function editUser() {
-        $id = $_GET['id'];
-        $user = $this->model->getById($id);
-        $selecoes = $this->model->getSelecoes();
-        $cargos = $this->cargos;
-        include __DIR__ . '/../View/Users/edit.php';
+    public function obterCargos(): array {
+        return $this->cargos;
     }
 
-    private function updateUser() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $nome = $_POST['nome'];
-            $idade = $_POST['idade'];
-            $cargo = $_POST['cargo'];
-            $selecao_id = isset($_POST['selecao_id']) && $_POST['selecao_id'] !== "" ? $_POST['selecao_id'] : null;
-            $this->model->update($id, $nome, $idade, $cargo, $selecao_id);
-            header('Location: index.php?controller=user&action=list');
-        }
-    }
-
-    private function deleteUser() {
-        $id = $_GET['id'];
-        $this->model->delete($id);
-        header('Location: index.php?controller=user&action=list');
+    public function obterSelecoes(): array {
+        return $this->teamsModel->buscarTodasSelecoes();
     }
 }
-
-// Instantiate and process
-$controller = new UserC($pdo);
-$controller->processRequest();
-?>

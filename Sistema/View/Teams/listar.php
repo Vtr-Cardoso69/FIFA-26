@@ -25,12 +25,15 @@ require_once __DIR__ . '/../../Controller/TeamsC.php';
   <nav class="nav">
     <ul>
       <li><a href="../../../index.php">Início</a></li>
-      <li><a href="../Teams/listarSelecoes.php">Seleções</a></li>
-      <li><a href="../Groups/listarGrupos.php">Grupos</a></li>
-      <li><a href="listarJogos.php">Jogos</a></li>
+      <li><a href="../Teams/listar.php">Seleções</a></li>
+      
+      <li><a href="../Games/listarjogos.php">Jogos</a></li>
     </ul>
 </header>
 <button><a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a></button>
+
+
+
 
 <?php
 if (empty($teams)) {

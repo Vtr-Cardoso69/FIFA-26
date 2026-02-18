@@ -86,7 +86,7 @@ class GameModel{
             echo 'Vitória ' . $sel_mandante['nome'] . "!";
         } elseif($gols_mandante < $gols_visitante){
             //visitante ganha
-            echo 'Vitória ' . $sel_visitante . "!";
+            echo 'Vitória ' . $sel_visitante['nome'] . "!";
             } elseif($gols_mandante == $gols_visitante){
                 //empate
             echo 'Empate entre ' . $sel_mandante['nome'] . " e " . $sel_visitante['nome'] . "!";

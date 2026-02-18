@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <?php endforeach; ?>
             </select><br><br>
 
-
+  
 
             <label for="continente">Continente:</label>
             <select id="continente" name="continente">

@@ -32,8 +32,7 @@ $jogos = $gameController->listarTodosJogos();
   <nav class="nav">
     <ul>
       <li><a href="../../../index.php">Início</a></li>
-      <li><a href="../Teams/listarSelecoes.php">Seleções</a></li>
-      <li><a href="../Groups/listarGrupos.php">Grupos</a></li>
+      <li><a href="../Teams/listar.php">Seleções</a></li>
       <li><a href="listarJogos.php">Jogos</a></li>
     </ul>
 </header>
@@ -52,7 +51,6 @@ foreach ($jogos as $jogo) {
   $selecao_mandante = $jogo['nome_mandante'];
   $selecao_visitante = $jogo['nome_visitante'];
   $grupo = $jogo['nome_grupo'];
-  $data_hora = $jogo['data_hora'];
   $estadio = $jogo['estadio'];
   $fase = $jogo['fase'];
   $gols_mandante = $jogo['gols_mandante'];
@@ -62,7 +60,7 @@ echo "<div class='jogo'>";
 echo "<h2>Grupo: " . "$grupo" . "</h2> <br>";
 echo "<h3> " . $selecao_mandante . " vs " . $selecao_visitante . "</h3> <br>";
 echo "Estádio: " . $estadio . "<br>";
-echo "Data e Hora: " . $data_hora . "<br>";
+
 echo "Fase: " . $fase . "<br>";
 echo "<button><a href='classificarJogo.php?id=$id'>Classificar Jogo</a></button><br><br>";
 

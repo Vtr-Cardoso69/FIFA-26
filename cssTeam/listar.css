@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'FIFA-26';
+    src: url('../Fonts/future-earth.ttf');
+}
+@font-face {
+    font-family: 'Title';
+    src: url('../Fonts/CreatoDisplay-ExtraBold.otf');
+}
+@font-face {
+    font-family: 'Text';
+    src: url('../Fonts/Nexa-ExtraLight.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+
+
+body{
+    background-image: linear-gradient(to right, rgb(15, 8, 56) 0%, rgb(78, 78, 179) 150%);
+}
+    :root {
+            --primary-color: #004d98; /* Azul FIFA */
+            --secondary-color: #ffffff;
+            --accent-color: #ed1c24; /* Vermelho FIFA */
+            --dark-bg: #0b0e14;
+        }
+
+
+header{
+
+    display: flex;
+    justify-content: space-between;
+        align-items: center;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.637) 90%, rgba(0, 0, 0, 0.253)95%, rgba(0, 0, 255, 0.021) 100%);
+}
+
+
+header h2{
+    padding: 20px;
+    text-align: left;
+    font-family: 'FIFA-26', sans-serif;
+    font-size: 70px;
+    margin-left: 100px;
+}  
+
+.nav{
+    padding: 20px;
+    margin-right: 300px;
+
+}
+.nav ul{
+list-style: none;
+display: flex;
+justify-content: space-around;
+flex-direction: row;
+gap: 30px;
+
+
+}
+
+.nav ul li{
+    font-size: 23px;
+}
+
+.nav ul li a{
+    font-family: 'Text', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+                    color: rgb(190, 245, 252);
+                }
+
+.jogo {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: black;
+    gap: 20px;
+    font-family: 'Text', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
+
+
+button{
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    font-family: 'FIFA-26', sans-serif;
+    letter-spacing: 1px;
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+h1{
+    font-family: 'FIFA-26', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.jogo h2{
+    font-family: 'Title', sans-serif;
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+
+.footer {
+            background-color: rgb(1, 0, 27);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+.footer a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-family: 'Text', sans-serif;
+                font-size: 18px;
+            }
+.footer a:hover {
+                    color: rgb(190, 245, 252);
+                }        

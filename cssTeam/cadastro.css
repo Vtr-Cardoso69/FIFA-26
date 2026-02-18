@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'FIFA-26';
+    src: url('../Fonts/future-earth.ttf');
+}
+@font-face {
+    font-family: 'Title';
+    src: url('../Fonts/CreatoDisplay-ExtraBold.otf');
+}
+@font-face {
+    font-family: 'Text';
+    src: url('../Fonts/Nexa-ExtraLight.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+
+
+body{
+    background-image: linear-gradient(to right, rgb(15, 8, 56) 0%, rgb(78, 78, 179) 150%);
+}
+    :root {
+            --primary-color: #004d98; /* Azul FIFA */
+            --secondary-color: #ffffff;
+            --accent-color: #ed1c24; /* Vermelho FIFA */
+            --dark-bg: #0b0e14;
+        }
+
+
+header{
+
+    display: flex;
+    justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.637) 90%, rgba(0, 0, 0, 0.253)95%, rgba(0, 0, 255, 0.021) 100%);
+}
+
+
+header h2{
+    padding: 20px;
+    text-align: left;
+    font-family: 'FIFA-26', sans-serif;
+    font-size: 70px;
+    margin-left: 100px;
+}  
+
+
+
+
+
+
+
+
+form{
+    width: 400px;
+    background-color: black;
+    display: flex;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+}
+
+form label{
+    font-family: 'Text', sans-serif;
+    font-size: 20px;
+
+}
+
+form input{
+    width: 200px;
+    height: 18px;
+    font-family: 'Text', sans-serif;
+        color: black;
+       font-weight: bolder;
+    
+}
+
+form input[type="submit"]{
+    width: 200px;
+    height: 30px;
+    background-color: blue; 
+    border: none;
+    border-radius: 5px;
+    font-family: 'FIFA-26', sans-serif;
+    cursor: pointer;
+    color: whitesmoke;
+    letter-spacing: 1px;
+}
+
+form select{
+    font-family: 'Text', sans-serif;
+    color: black;
+    font-weight: bolder;
+}
+
+form  select option{
+    color: black;
+    font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+             .footer {
+            background-color: rgb(1, 0, 27);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+.footer a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                font-family: 'Text', sans-serif;
+                font-size: 18px;
+            }
+.footer a:hover {
+                    color: rgb(190, 245, 252);
+                }        

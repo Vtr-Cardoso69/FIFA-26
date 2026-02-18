@@ -30,7 +30,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Seleção</title>
 </head>
+<link rel="stylesheet" href="../../../cssTeam/cadastro.css">
 <body>
+
+        <style>
+        :root {
+            --primary-color: #004d98; /* Azul FIFA */
+            --secondary-color: #ffffff;
+            --accent-color: #ed1c24; /* Vermelho FIFA */
+            --dark-bg: #0b0e14;
+        }
+</style>
+<header>
+  <h2>FIFA-<span style="color: var(--primary-color);">26</span></h2>
+</header>
+
+<div class='form'>
     <form method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome"><br><br>
@@ -54,4 +69,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <option value="Oceania">Oceania</option>
             </select>
             <input type="submit" value="Cadastrar">
+        </div>
+            <br>
+                <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FIFA World Cup Project - Desenvolvido por FIFA DEVs</p>
+            <div class="">
+                <a href="https://github.com/WPOTC">Colaborador 1</a>
+                <a href="https://github.com/PedroSENAI2008">Colaborador 2</a>
+                <a href="https://github.com/Vtr-Cardoso69">Colaborador 3</a>
+            </div>
+        </div>
+    </footer>
+                </body>
 </html>

@@ -16,7 +16,7 @@ $jogos = $gameController->listarTodosJogos();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../../../css/listarJogos.css">
+  <link rel="stylesheet" href="../../../cssGame/listarJogos.css">
 </head>
 <body>
 <style>
@@ -37,6 +37,9 @@ $jogos = $gameController->listarTodosJogos();
       <li><a href="listarJogos.php">Jogos</a></li>
     </ul>
 </header>
+
+
+<h2><button><a href="criarJogos.php">Criar Jogo</a></button></h2>
 
 <?php
 echo "<h1>Jogos</h1>";
@@ -78,8 +81,8 @@ echo "<br><br>";
             <p>&copy; 2026 FIFA World Cup Project - Desenvolvido por FIFA DEVs</p>
             <div class="">
                 <a href="https://github.com/WPOTC">Colaborador 1</a>
-                <a href="#">Colaborador 2</a>
-                <a href="">Colaborador 3</a>
+                <a href="https://github.com/PedroSENAI2008">Colaborador 2</a>
+                <a href="https://github.com/Vtr-Cardoso69">Colaborador 3</a>
             </div>
         </div>
     </footer>

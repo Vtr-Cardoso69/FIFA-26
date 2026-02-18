@@ -1,7 +1,38 @@
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/TeamsC.php';
- echo "<a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a>";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA-26</title>
+</head>
+<link rel="stylesheet" href="../../../cssTeam/listar.css">
+<body>
+
+<style>
+        :root {
+            --primary-color: #004d98; /* Azul FIFA */
+            --secondary-color: #ffffff;
+            --accent-color: #ed1c24; /* Vermelho FIFA */
+            --dark-bg: #0b0e14;
+        }
+</style>
+<header>
+  <h2>FIFA-<span style="color: var(--primary-color);">26</span></h2>
+  <nav class="nav">
+    <ul>
+      <li><a href="../../../index.php">Início</a></li>
+      <li><a href="../Teams/listarSelecoes.php">Seleções</a></li>
+      <li><a href="../Groups/listarGrupos.php">Grupos</a></li>
+      <li><a href="listarJogos.php">Jogos</a></li>
+    </ul>
+</header>
+<button><a href='/FIFA-26/Sistema/View/Teams/cadastro.php'>Cadastrar</a></button>
+
+<?php
 if (empty($teams)) {
     echo "nada";
 
@@ -37,3 +68,5 @@ if (empty($teams)) {
     echo '</tbody></table>';
 }
 ?>
+</body>
+</html>

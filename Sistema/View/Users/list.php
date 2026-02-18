@@ -61,6 +61,9 @@ $usuarios = $usersModel->listarUsuarios();
 		<?php endif; ?>
 		</tbody>
 	</table>
+ <a href="../../../index.php" class="btn btn-secondary">Voltar
+	
+ </a>
 </div>
 </body>
 </html>

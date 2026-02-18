@@ -56,22 +56,26 @@ if (!$user) {
 			<label>Cargo</label>
 			<select name="cargo" class="form-control" required>
 				<option value="">Selecione um cargo</option>
+				
 				<?php foreach ($cargos as $cargo_op): ?>
 					<option value="<?php echo htmlspecialchars($cargo_op); ?>" <?php echo ($cargo_op == $user['cargo']) ? 'selected' : ''; ?>>
 						<?php echo htmlspecialchars($cargo_op); ?>
 					</option>
 				<?php endforeach; ?>
+
 			</select>
 		</div>
 		<div class="form-group">
 			<label>Seleção</label>
 			<select name="selecao_id" class="form-control">
 				<option value="">Nenhuma</option>
+				
 				<?php foreach ($selecoes as $selecao): ?>
 					<option value="<?php echo $selecao['id']; ?>" <?php echo ($selecao['id'] == $user['selecao_id']) ? 'selected' : ''; ?>>
 						<?php echo htmlspecialchars($selecao['nome']); ?>
 					</option>
 				<?php endforeach; ?>
+				
 			</select>
 		</div>
 		<button type="submit" class="btn btn-success">Salvar Alterações</button>

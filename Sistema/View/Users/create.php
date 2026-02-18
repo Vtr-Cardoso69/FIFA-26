@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -73,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <button type="submit" class="btn btn-success">Salvar</button>
-        <a href="list.php" class="btn btn-secondary">Cancelar</a>
+        <a href="../../../index.php" class="btn btn-secondary">Cancelar</a>
 
     </form>
 </div>

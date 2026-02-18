@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIFA World Cup 2026 - Official Portal</title>
+    
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -15,15 +17,14 @@
     
     <style>
         :root {
-            --primary-color: #004d98; /* Azul FIFA */
-            --secondary-color: #ffffff;
-            --accent-color: #ed1c24; /* Vermelho FIFA */
-            --dark-bg: #0b0e14;
+            --1: #004d98; /* Azul FIFA */
+            --2: #ffffff;
+            --dark: #0b0e14;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
+            background-color: var(--dark);
             color: white;
             overflow-x: hidden;
         }
@@ -58,7 +59,7 @@
         }
 
         .btn-fifa {
-            background-color: var(--primary-color);
+            background-color: var(--1);
             color: white;
             padding: 15px 40px;
             font-weight: 700;
@@ -73,9 +74,10 @@
 
         .btn-fifa:hover {
             background-color: transparent;
-            border-color: var(--secondary-color);
+            border-color: var(--2);
             color: white;
             transform: translateY(-5px);
+            padding: 15px 60px;
         }
 
         .btn-fifa-outline {
@@ -85,17 +87,20 @@
             font-weight: 700;
             text-transform: uppercase;
             border-radius: 50px;
-            border: 2px solid var(--secondary-color);
+            border: 2px solid var(--2);
             transition: all 0.3s ease;
             margin: 10px;
             text-decoration: none;
             display: inline-block;
+        
         }
 
         .btn-fifa-outline:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--2);
             color: var(--primary-color);
             transform: translateY(-5px);
+            color: var(--dark);
+            padding: 15px 60px;
         }
 
         .features {
@@ -119,7 +124,7 @@
 
         .feature-card i {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--1);
             margin-bottom: 20px;
         }
 
@@ -175,57 +180,29 @@
     <header class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1>WE ARE 26</h1>
-                <p>Prepare-se para a maior Copa do Mundo da história. Canadá, México e Estados Unidos esperam por você.</p>
+                <h1>COPA  26</h1>
+                <p>Sistema de gerenciamento de Jogos</p>
                 <div class="cta-buttons">
-                    <a href="index.php?controller=user&action=create" class="btn-fifa">
+                    <a href="Sistema/View/Users/create.php" class="btn-fifa">
                         <i class="fas fa-user-plus me-2"></i>Registrar Usuário
                     </a>
-                    <a href="index.php?controller=user&action=list" class="btn-fifa-outline">
-                        <i class="fas fa-users me-2"></i>Ver Membros
+                    <a href="Sistema/View/Games/listarJogos.php" class="btn-fifa-outline">
+                        <i class="fas fa-game"></i>Ver Jogos
                     </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-trophy"></i>
-                        <h3>Gestão de Equipes</h3>
-                        <p>Controle todas as seleções participantes e suas informações detalhadas.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h3>Calendário</h3>
-                        <p>Acompanhe todos os jogos, estádios e resultados em tempo real.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-card text-center">
-                        <i class="fas fa-id-card"></i>
-                        <h3>Credenciamento</h3>
-                        <p>Sistema completo de registro para técnicos, jogadores e árbitros.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 FIFA World Cup Project - Desenvolvido para a Turma 2</p>
+            <p>&copy; 2026 FIFA World Cup Project - Desenvolvido </p>
             <div class="social-links mt-3">
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+               
+                <a href="https://github.com/Vtr-Cardoso69/FIFA-26" class="text-white me-3"><i class="fab fa-github"></i></a>
+            
             </div>
         </div>
     </footer>

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../Model/GroupsM.php';
 require_once __DIR__ . '/../../Controller/GameC.php';
 
 $teamModel = new TeamModel($pdo);
-$selecoes = $teamModel->buscarTodasSelecoes();
+$selecoes = $teamModel->buscarTodasComGrupo();
 
 $groupModel = new GroupModel($pdo);
 $grupos = $groupModel->buscarTodos();
@@ -70,7 +70,7 @@ $gameController = new GameController($pdo);
     </select>
 
     <label for="Grupo">Grupo: </label>
-    <select name="grupo" id="grupo" required>
+    <select name="grupo" id="grupo" >
         <option value="">Selecione o grupo...</option>
         <?php foreach ($grupos as $g): ?>
         <option value="<?= $g['id'] ?>">

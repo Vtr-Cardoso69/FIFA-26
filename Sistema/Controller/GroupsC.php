@@ -16,7 +16,7 @@ class GroupController {
 
     // Lista todos os Selecoes
     public function listar() {
-        $groups = $this->GroupModel->buscarTodasSelecoes();
+        $groups = $this->GroupModel->buscarTodos();
         include_once __DIR__ . '/../View/Groups/listar.php';
         return $groups;
     }

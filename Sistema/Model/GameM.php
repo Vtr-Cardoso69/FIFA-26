@@ -1,16 +1,6 @@
 <?php
 
-require_once "C:/Turma2/xampp/htdocs/FIFA-26/Sistema/DB/Database.php";
-
-//`selecao_mandante_id` int(11) NOT NULL,
-//`selecao_visitante_id` int(11) NOT NULL,
-//`data_hora` datetime NOT NULL,
-// `estadio` varchar(100) NOT NULL,
-// `fase` varchar(50) NOT NULL,
-// `grupo_id` int(11) DEFAULT NULL,
-// `gols_mandante` int(11) DEFAULT NULL,
-// `gols_visitante` int(11) DEFAULT NULL
-  
+require_once __DIR__ . '/../DB/Database.php';
 
 class GameModel{
     private $pdo;

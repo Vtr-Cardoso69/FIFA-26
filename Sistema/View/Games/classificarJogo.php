@@ -1,6 +1,6 @@
 <?php
-require_once "C:/Turma2/xampp/htdocs/FIFA-26/Sistema/DB/Database.php";
-require_once "C:/Turma2/xampp/htdocs/FIFA-26/Sistema/Controller/GameC.php";
+require_once __DIR__ . '/../../DB/Database.php';
+require_once __DIR__ . '/../../Controller/GameC.php';
 
 $gameController = new GameController($pdo);
 ?>

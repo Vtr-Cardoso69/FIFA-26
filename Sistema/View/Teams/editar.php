@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $continente = $_POST['continente'];
   $jogos = $_POST['jogos'];
   $TeamController -> editar( $nome, $grupo_id, $continente, $jogos );
-  header("Location: ../../index.php");
+  header("Location: listar.php");
 
  
 }

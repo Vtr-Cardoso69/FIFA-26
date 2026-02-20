@@ -1,45 +1,36 @@
 <?php
 require_once __DIR__ . "/../Model/TeamsM.php";
 
-
 class TeamController {
+
     private $TeamModel;
     
     public function __construct($pdo) {
         $this->TeamModel = new TeamModel($pdo);
     }
 
-    // Cadastra um novo Team
-    public function cadastrar($nome, $grupo_id, $continente ) {
-        // Valida se professor existe
+    // Cadastrar seleção
+    public function cadastrar($nome, $grupo_id, $continente) {
         return $this->TeamModel->cadastrarSelecao($nome, $continente, $grupo_id);
     }
 
-    
+    // LISTAR (CORRETO)
     public function listar() {
-        $teams = $this->TeamModel->buscarTodasComGrupo();
-        include __DIR__ . '/../View/Teams/listar.php';
+        return $this->TeamModel->buscarTodasComGrupo();
     }
 
-
-    // Busca um Team por ID
+    // Buscar por ID
     public function buscarTeam($id) {
-        return $this->TeamModel->buscarSelecoes($id);
+        return $this->TeamModel->buscarSelecao($id);
     }
 
-    // Deleta um Team por ID
+    // Deletar
     public function deletar($id) {
-        return $this->TeamModel->deletarTeam($id);
+        return $this->TeamModel->deletarSelecao($id);
     }
 
-    // Atualiza um Team por ID
+    // Editar
     public function editar($id, $nome, $grupo_id, $continente) {
-    return $this->TeamModel->editar($id, $nome, $grupo_id, $continente);
+        return $this->TeamModel->editar($id, $nome, $continente, $grupo_id);
+    }
 }
-
-    
-    
-
-
-}
-?>

@@ -140,3 +140,28 @@ h1{
 .footer a:hover {
                     color: rgb(190, 245, 252);
                 }        
+
+
+
+
+
+            
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+    tr:nth-child(even) {
+       background-color: #004d98;
+    }
+    tr:nth-child(odd) {
+        background-color: var(--secondary-color);
+    }

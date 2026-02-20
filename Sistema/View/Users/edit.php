@@ -7,7 +7,7 @@ $usersModel = new UsersModel($pdo);
 $teamsModel = new TeamModel($pdo);
 
 $cargos = ['Jogador', 'Técnico', 'Árbitro', 'Preparador Físico', 'Médico'];
-$selecoes = $teamsModel->buscarTodasSelecoes();
+$selecoes = $teamsModel->buscarTodasComGrupo();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_POST['nome'])) {
 	$dados = [

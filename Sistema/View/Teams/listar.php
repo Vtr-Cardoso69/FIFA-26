@@ -8,8 +8,7 @@ $TeamController  = new TeamController($pdo);
 $GroupController = new GroupController($pdo);
 
 /* ===== BUSCA OS DADOS ANTES DE USAR ===== */
-$teams = $TeamController->listar();
-?>
+$teams = $TeamController->listar();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,10 +44,12 @@ $teams = $TeamController->listar();
 </header>
 
 <button>
-    <a href="/FIFA-26/Sistema/View/Teams/cadastro.php">Cadastrar</a>
+    <a href="/FIFA-26/Sistema/View/Teams/cadastro.php">Cadastrar SELEÇÃO</a>
 </button>
 
-<hr>
+<button>
+    <a href="/FIFA-26/Sistema/View/Groups/listar.php">Cadastrar GRUPOS</a>
+</button>
 
 <?php if (empty($teams)) : ?>
 
@@ -64,6 +65,7 @@ $teams = $TeamController->listar();
             <th>Grupo</th>
             <th>Continente</th>
             <th>Ações</th>
+            
         </tr>
     </thead>
 
@@ -75,6 +77,7 @@ $teams = $TeamController->listar();
                 <td><?= $team['id'] ?></td>
                 <td><?= htmlspecialchars($team['nome']) ?></td>
                 <td><?= htmlspecialchars($team['nome_grupo']) ?></td>
+                
                 <td><?= htmlspecialchars($team['continente']) ?></td>
                 <td>
                     <a href="/FIFA-26/Sistema/View/Teams/editar.php?id=<?= $team['id'] ?>">

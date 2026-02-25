@@ -2,7 +2,9 @@
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Model/UsersM.php';
 
+
 $usersModel = new UsersModel($pdo);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 	$id = (int) $_POST['delete_id'];
@@ -32,6 +34,7 @@ $usuarios = $usersModel->listarUsuarios();
 				<th>Idade</th>
 				<th>Cargo</th>
 				<th>Seleção</th>
+				<th>Grupo</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -44,6 +47,7 @@ $usuarios = $usersModel->listarUsuarios();
 					<td><?php echo $usuario['idade']; ?></td>
 					<td><?php echo htmlspecialchars($usuario['cargo']); ?></td>
 					<td><?php echo htmlspecialchars($usuario['selecao_nome'] ?? ''); ?></td>
+					<td><?php echo htmlspecialchars($usuario['grupo_nome'] ?? ''); ?></td>
 					<td>
 						<form action="edit.php" method="POST" style="display:inline;">
 							<input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">

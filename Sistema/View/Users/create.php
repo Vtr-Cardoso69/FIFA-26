@@ -2,13 +2,17 @@
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Model/UsersM.php';
 require_once __DIR__ . '/../../Model/TeamsM.php';
+require_once __DIR__ . '/../../Model/GroupsM.php';
 
 $usersModel = new UsersModel($pdo);
 $teamsModel = new TeamModel($pdo);
+$groupModel = new GroupModel($pdo);
 
 $cargos = ['Jogador', 'Técnico', 'Árbitro', 'Preparador Físico', 'Médico'];
 
 $selecoes = $teamsModel->buscarTodasComGrupo();
+$grupos = $groupModel->buscarTodos();
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dados = [
@@ -16,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nome' => $_POST['nome'],
         'idade' => $_POST['idade'],
         'cargo' => $_POST['cargo'],
-        'selecao_id' => $_POST['selecao_id'] ?: null
+        'selecao_id' => $_POST['selecao_id'] ?: null,
+        'grupo_id' => $_POST['grupo_id'] ?: null
+        
     ];
 
     $usersModel->salvar($dados);
@@ -70,6 +76,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php foreach ($selecoes as $selecao): ?>
                     <option value="<?= $selecao['id'] ?>">
                         <?= htmlspecialchars($selecao['nome']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Grupo</label>
+            <select name="grupo_id" class="form-control">
+                <option value="">Nenhuma</option>
+                <?php foreach ($grupos as $grupo): ?>
+                    <option value="<?= $grupo['id'] ?>">
+                        <?= htmlspecialchars($grupo['nome']) ?>
                     </option>
                 <?php endforeach; ?>
             </select>

@@ -7,8 +7,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
   $nome = $_POST['nome'];
  
-  $GroupController->cadastrar($nome,);
-  header("Location: ../../index.php");
+  $GroupController->cadastrar($nome);
+  header("Location: ../Teams/listar.php");
 }
 ?>
 
@@ -19,6 +19,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Grupo</title>
 </head>
+<header>
+  <h2>FIFA-<span style="color: var(--primary-color);">26</span></h2>
+</header>
 <body>
     <form method="POST">
         <label for="nome">Nome:</label>

@@ -20,6 +20,7 @@
 
 body{
     background-image: linear-gradient(to right, rgb(15, 8, 56) 0%, rgb(78, 78, 179) 150%);
+    margin:0;
 }
     :root {
             --primary-color: #004d98; /* Azul FIFA */

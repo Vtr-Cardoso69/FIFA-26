@@ -163,5 +163,5 @@ h1{
        background-color: #004d98;
     }
     tr:nth-child(odd) {
-        background-color: var(--secondary-color);
+        background-color: #3d4b5a;
     }

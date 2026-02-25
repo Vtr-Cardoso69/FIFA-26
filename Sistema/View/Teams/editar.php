@@ -1,4 +1,4 @@
-gi
+
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/TeamsC.php';
@@ -25,6 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Seleção</title>
+    <link rel="stylesheet" href="../../../cssTeam/cadastro.css">
 </head>
 <body>
     <form method="POST">
@@ -44,5 +45,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   </select>
         <input type="submit" value="Editar">
 </form>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FIFA World Cup Project - Desenvolvido por FIFA DEVs</p>
+            <div class="">
+                <a href="https://github.com/WPOTC">Colaborador 1</a>
+                <a href="https://github.com/PedroSENAI2008">Colaborador 2</a>
+                <a href="https://github.com/Vtr-Cardoso69">Colaborador 3</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

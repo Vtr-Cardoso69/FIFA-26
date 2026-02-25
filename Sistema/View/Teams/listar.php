@@ -93,6 +93,17 @@ $teams = $TeamController->listar();
 
 <?php endif; ?>
 
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FIFA World Cup Project - Desenvolvido por FIFA DEVs</p>
+            <div class="">
+                <a href="https://github.com/WPOTC">Colaborador 1</a>
+                <a href="https://github.com/PedroSENAI2008">Colaborador 2</a>
+                <a href="https://github.com/Vtr-Cardoso69">Colaborador 3</a>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 </html>

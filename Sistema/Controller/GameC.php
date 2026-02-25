@@ -26,6 +26,10 @@ class GameController{
     public function classificacao($id, $gols_mandante, $gols_visitante, $selecao_mandante_id, $selecao_visitante_id){
         return $this->gameModel->classificacao($id, $gols_mandante, $gols_visitante, $selecao_mandante_id, $selecao_visitante_id);
     }
+
+    public function obterClassificacaoGols(){
+        return $this->gameModel->obterClassificacaoGols();
+    }
 }
 
 ?>

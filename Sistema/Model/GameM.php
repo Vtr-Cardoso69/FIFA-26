@@ -83,5 +83,26 @@ class GameModel{
         }
     }
 
+    public function obterClassificacaoGols()
+    {
+        $sql = "SELECT s.id, s.nome,
+                    COALESCE(m.gols_mandante,0) + COALESCE(v.gols_visitante,0) AS gols_pro,
+                    COALESCE(m.gols_visitante,0) + COALESCE(v.gols_mandante,0) AS gols_con
+                FROM selecoes s
+                LEFT JOIN (
+                    SELECT selecao_mandante_id AS sel_id, SUM(gols_mandante) AS gols_mandante, SUM(gols_visitante) AS gols_visitante
+                    FROM jogos GROUP BY selecao_mandante_id
+                ) m ON s.id = m.sel_id
+                LEFT JOIN (
+                    SELECT selecao_visitante_id AS sel_id, SUM(gols_visitante) AS gols_visitante, SUM(gols_mandante) AS gols_mandante
+                    FROM jogos GROUP BY selecao_visitante_id
+                ) v ON s.id = v.sel_id
+                ORDER BY gols_pro DESC";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

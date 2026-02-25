@@ -35,11 +35,12 @@ $teams = $TeamController->listar();
     <h2>FIFA-<span style="color: var(--primary-color);">26</span></h2>
 
     <nav class="nav">
-        <ul>
-            <li><a href="../../../index.php">Início</a></li>
-            <li><a href="../Teams/listar.php">Seleções</a></li>
-            <li><a href="../Games/listarjogos.php">Jogos</a></li>
-        </ul>
+         <ul>
+      <li><a href="../../../index.php">Início</a></li>
+      <li><a href="../Teams/listar.php">Seleções</a></li>
+      <li><a href="../Games/listarJogos.php">Jogos</a></li>
+        <li><a href="../Games/classificacaoGeral.php">Classificação Geral</a></li>
+    </ul>
     </nav>
 </header>
 

@@ -126,4 +126,37 @@ form input[type="submit"]{
 .footer a:hover {
                     color: rgb(190, 245, 252);
                 }        
-   
+/* Ranking table styles */
+.ranking {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+.ranking table {
+    width: 90%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.03);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.ranking thead th {
+    background: linear-gradient(90deg, rgba(0,77,152,0.95), rgba(78,78,179,0.95));
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'Title', sans-serif;
+}
+.ranking tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: rgb(9, 9, 9);
+    font-family: 'Text', sans-serif;
+    font-size:20px;
+    
+}
+.ranking tbody tr:nth-child(even) { background: rgba(107, 142, 218, 0.416); }
+.ranking tbody tr:hover { background: rgb(112, 112, 112); }
+.ranking .pos { font-weight: 700; width: 60px; text-align: center; }
+.ranking .team { font-weight: 600; }

@@ -168,7 +168,9 @@
                     </li>
                     <li class="nav-item">
                        <a class="nav-link" href="Sistema/View/Games/listarJogos.php">Jogos</a>
-
+                    </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="Sistema/View/Games/classificacaoGeral.php">Classificação Geral</a>
                     </li>
                 </ul>
             </div>

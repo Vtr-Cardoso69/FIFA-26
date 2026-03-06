@@ -48,5 +48,17 @@ class GroupModel{
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+    public function atualizarGroup($id, $nome) {
+        $sql = "UPDATE grupos SET nome = ? WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$nome, $id]);
+    }
+
+    public function deletarGroup($id) {
+        $sql = "DELETE FROM grupos WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id]);
+    }
+
 }
 ?>

@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <select id="continente" name="continente">
                 <option value="">-- Selecione --</option>
                 <option value="África">África</option>
-                <option value="America">América</option>
+                <option value="América">América</option>
                 <option value="Europa">Europa</option>
                 <option value="Ásia">Ásia</option>
                 <option value="Oceania">Oceania</option>

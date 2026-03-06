@@ -41,11 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $id > 0) {
         <label for="continente">Continente:</label>
         <select id="continente" name="continente" required>
             <option value="">-- Selecione --</option>
-            <option value="africa" <?php if($team['continente']=='africa') echo 'selected'; ?>>África</option>
-            <option value="america" <?php if($team['continente']=='america') echo 'selected'; ?>>América</option>
-            <option value="europa" <?php if($team['continente']=='europa') echo 'selected'; ?>>Europa</option>
-            <option value="asia" <?php if($team['continente']=='asia') echo 'selected'; ?>>Ásia</option>
-            <option value="oceania" <?php if($team['continente']=='oceania') echo 'selected'; ?>>Oceania</option>
+            <option value="África" <?php if($team['continente']=='África') echo 'selected'; ?>>África</option>
+            <option value="América" <?php if($team['continente']=='América') echo 'selected'; ?>>América</option>
+            <option value="Europa" <?php if($team['continente']=='Europa') echo 'selected'; ?>>Europa</option>
+            <option value="Ásia" <?php if($team['continente']=='Ásia') echo 'selected'; ?>>Ásia</option>
+            <option value="Oceania" <?php if($team['continente']=='Oceania') echo 'selected'; ?>>Oceania</option>
         </select><br><br>
         <input type="submit" value="Salvar">
     </form>

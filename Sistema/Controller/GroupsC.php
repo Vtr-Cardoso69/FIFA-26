@@ -26,7 +26,7 @@ class GroupController {
 
     // Busca um Group por ID
     public function buscarGroup($id) {
-        return $this->GroupModel->buscarSelecoes($id);
+        return $this->GroupModel->buscarGrupo($id);
     }
 
     // Deleta um Group por ID

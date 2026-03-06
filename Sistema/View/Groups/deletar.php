@@ -1,31 +1,33 @@
 <?php
 require_once __DIR__ . '/../../DB/Database.php';
 require_once __DIR__ . '/../../Controller/GroupsC.php';
+
 $GroupController = new GroupController($pdo);
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$group = null;
-
-if ($id > 0) {
-    // Buscar dados atuais do grupo
-    $group = $GroupController->buscarGroup($id);
+$id = $_GET['id'] ?? null;
+if (!$id) {
+    header('Location: listar.php');
+    exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $id > 0) {
-    $nome = $_POST['nome'];
-    $GroupController->atualizar($id, $nome);
-    header("Location: listar.php");
-    exit;
+$group = $GroupController->buscarGroup($id);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // confirmação via POST
+    if (isset($_POST['confirm']) && $_POST['confirm'] === 'yes') {
+        $GroupController->deletar($id);
+    }
+    header('Location: listar.php');
+    exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Grupo</title>
-    <link rel="stylesheet" href="../../../cssTeam/cadastro.css">
+    <title>Deletar Grupo - FIFA-26</title>
+    <link rel="stylesheet" href="../../../cssTeam/listar.css">
     <style>
         :root {
             --primary-color: #004d98; /* Azul FIFA */
@@ -48,17 +50,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $id > 0) {
     </nav>
 </header>
 
-<div class='form'>
+<main style="padding:24px;">
     <?php if ($group): ?>
-    <form method="POST">
-        <label for="nome">Nome do Grupo:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($group['nome']); ?>" required><br><br>
-        <input type="submit" value="Salvar">
-    </form>
+        <h3>Confirmar exclusão</h3>
+        <p>Tem certeza que deseja excluir o grupo: <strong><?= htmlspecialchars($group['nome']) ?></strong>?</p>
+        <form method="post">
+            <button type="submit" name="confirm" value="yes" style="background:#c62828;color:#fff;padding:8px 12px;border:none;border-radius:4px;">Sim, excluir</button>
+            <a href="listar.php" style="margin-left:12px;">Cancelar</a>
+        </form>
     <?php else: ?>
         <p>Grupo não encontrado.</p>
+        <p><a href="listar.php">Voltar</a></p>
     <?php endif; ?>
-</div>
+</main>
 
 <footer class="footer">
     <div class="container">
